@@ -1,22 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Todo App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Träningsdagbok</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
 
-<h1>Todo App</h1>
+  <main class="app-shell">
+    <header class="hero">
+      <div class="hero-badge">Fitness Journal</div>
+      <h1>Träningsdagbok</h1>
+      <p class="hero-text">
+        En modern och enkel plats för att logga dina träningspass.
+      </p>
+    </header>
 
-<input id="taskInput">
-<button id="addBtn">Add</button>
+    <section class="panel form-panel">
+      <div class="panel-header">
+        <h2>Lägg till träningspass</h2>
+        <p>Skriv in ditt pass och bygg din träningshistorik.</p>
+      </div>
 
-<ul id="list"></ul>
+      <div class="form-group">
+        <label for="workout-input">Passnamn</label>
+        <input id="workout-input" type="text" placeholder="Ex: Benpass, Löpning, Rygg & biceps">
+      </div>
 
-<script src="js/functions.js"></script>
-<script src="js/script.js"></script>
-<script src="js/test.js"></script>
+      <button id="add-btn" class="primary-btn">Lägg till pass</button>
+    </section>
 
+    <section class="panel list-panel">
+      <div class="panel-header">
+        <h2>Mina träningspass</h2>
+        <p>Dina tillagda pass visas här.</p>
+      </div>
+
+      <ul id="workout-list" class="workout-list"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
 </body>
 </html>
