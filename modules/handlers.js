@@ -1,7 +1,8 @@
 import {
   addWorkout,
   removeWorkout,
-  updateWorkout
+  updateWorkout,
+  toggleWorkout
 } from "./state.js";
 
 import { renderWorkouts } from "./ui.js";
@@ -43,6 +44,12 @@ export function handleEdit(id) {
   }
 
   updateWorkout(id, newTitle.trim());
+  saveToStorage();
+  renderWorkouts();
+}
+
+export function handleToggle(id) {
+  toggleWorkout(id);
   saveToStorage();
   renderWorkouts();
 }

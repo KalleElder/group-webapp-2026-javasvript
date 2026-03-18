@@ -9,14 +9,31 @@ export function addWorkout(workout) {
 }
 
 export function removeWorkout(id) {
-  workouts = workouts.filter(w => w.id !== id);
+  workouts = workouts.filter((workout) => workout.id !== id);
 }
 
 export function updateWorkout(id, newTitle) {
-  workouts = workouts.map(w => {
-    if (w.id === id) {
-      return { ...w, title: newTitle };
+  workouts = workouts.map((workout) => {
+    if (workout.id === id) {
+      return {
+        ...workout,
+        title: newTitle
+      };
     }
-    return w;
+
+    return workout;
+  });
+}
+
+export function toggleWorkout(id) {
+  workouts = workouts.map((workout) => {
+    if (workout.id === id) {
+      return {
+        ...workout,
+        completed: !workout.completed
+      };
+    }
+
+    return workout;
   });
 }
