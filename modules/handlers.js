@@ -12,22 +12,21 @@ export function handleAddWorkout() {
   const input = document.getElementById("workout-input");
   const title = input.value.trim();
 
+  // Use native browser validation tooltip instead of a blocking alert()
   if (!title) {
-    alert("Skriv in ett träningspass först.");
+    input.setCustomValidity("Skriv in ett träningspass först.");
+    input.reportValidity();
+    input.setCustomValidity(""); // Reset so next valid input isn't blocked
     return;
   }
 
-  const workout = {
-    id: Date.now().toString(),
-    title: title,
-    completed: false
-  };
-
-  addWorkout(workout);
+  addWorkout({ id: Date.now().toString(), title, completed: false });
   saveToStorage();
   renderWorkouts();
 
+  // Clear and refocus so the user can log the next workout right away
   input.value = "";
+  input.focus();
 }
 
 export function handleDelete(id) {
@@ -39,9 +38,8 @@ export function handleDelete(id) {
 export function handleEdit(id) {
   const newTitle = prompt("Skriv nytt namn på träningspasset:");
 
-  if (!newTitle || !newTitle.trim()) {
-    return;
-  }
+  // Optional chaining handles both Cancel (null) and empty string
+  if (!newTitle?.trim()) return;
 
   updateWorkout(id, newTitle.trim());
   saveToStorage();
