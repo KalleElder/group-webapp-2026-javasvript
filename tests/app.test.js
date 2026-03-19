@@ -1,19 +1,22 @@
-import { addWorkout, workouts, setWorkouts } from "../modules/state.js";
+import { describe, it, expect, beforeEach } from 'vitest';
+import { addWorkout, workouts, setWorkouts } from '../modules/state.js';
 
-function testAddWorkout() {
-  setWorkouts([]);
-
-  addWorkout({
-    id: "1",
-    title: "Testpass",
-    completed: false
+describe('state.js', () => {
+  beforeEach(() => {
+    setWorkouts([]);
   });
 
-  if (workouts.length === 1 && workouts[0].title === "Testpass") {
-    console.log("Test OK");
-  } else {
-    console.log("Test Failed");
-  }
-}
+  it('should add a workout to the workouts array', () => {
+    const workout = {
+      id: '1',
+      title: 'Testpass',
+      completed: false,
+    };
 
-testAddWorkout();
+    addWorkout(workout);
+
+    expect(workouts).toHaveLength(1);
+    expect(workouts[0].title).toBe('Testpass');
+    expect(workouts[0].completed).toBe(false);
+  });
+});

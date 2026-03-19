@@ -1,0 +1,18 @@
+{
+  "name": "group-webapp-2026-javasvript",
+  "version": "1.0.0",
+  "description": "Syftet med applikationen är att låta användaren logga sina träningspass i en enkel träningsdagbok.",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^4.1.0"
+  }
+}
