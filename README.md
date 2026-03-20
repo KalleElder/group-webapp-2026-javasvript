@@ -1,26 +1,44 @@
 # Träningsdagbok
 
-## Syfte
-Syftet med applikationen är att låta användaren logga sina träningspass i en enkel träningsdagbok.
+## Beskrivning
+
+En enkel webbapplikation där användaren kan logga och hantera sina träningspass.
 
 ## Funktioner
+
 - Lägg till träningspass
 - Visa träningspass i en lista
-- Spara träningspass i localStorage
+- Redigera träningspass
+- Ta bort träningspass
+- Markera träningspass som klara
+- Spara träningspass i localStorage så att datan finns kvar efter uppdatering
 
 ## Teknik
+
 - HTML
 - CSS
-- JavaScript
+- JavaScript (ES6 modules)
 - DOM manipulation
 - localStorage
-
-## Test
-Ett enkelt test finns i `tests/app.test.js` för funktionen som lägger till ett träningspass i state.
+- Vitest (test)
 
 ## Struktur
-- `index.html` = grundstruktur
-- `css/style.css` = design
-- `app.js` = startfil
-- `modules/` = logik, UI, handlers och storage
-- `tests/` = testfil
+
+- `index.html` – grundstruktur
+- `css/style.css` – design
+- `app.js` – startfil
+- `modules/state.js` – hanterar data
+- `modules/ui.js` – rendering
+- `modules/handlers.js` – events
+- `modules/storage.js` – localStorage
+- `tests/app.test.js` – test
+
+## Test
+
+Projektet använder Vitest för testning.
+
+Kör tester med:
+
+```bash
+npm test
+```
